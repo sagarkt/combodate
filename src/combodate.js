@@ -90,7 +90,7 @@
             });
 
             //replace spaces with &nbsp;
-            tpl = tpl.replace(/ /g, '&nbsp;');
+            // tpl = tpl.replace(/ /g, '&nbsp;');
 
             //second pass
             $.each(this.map, function(k, v) {
@@ -201,7 +201,7 @@
                 shortNames = this.options.template.indexOf('MMM') !== -1,
                 twoDigit = this.options.template.indexOf('MM') !== -1;
 
-            for(i=0; i<=11; i++) {
+            for(i=0; i<(this.options.maxMonth || 12); i++) {
                 if (longNamesNum) {
                     name = moment().date(1).month(i).format('MM - MMMM');
                 } else if (shortNamesNum) {
@@ -509,6 +509,7 @@
         template: 'D / MMM / YYYY   H : mm',
         //initial value, can be `new Date()`
         value: null,
+        maxMonth: 12,
         minYear: 1970,
         maxYear: 2015,
         yearDescending: true,
