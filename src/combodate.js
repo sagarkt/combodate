@@ -220,6 +220,14 @@
             }
             return items;
         },
+        
+        /*
+        change max month
+        */
+        changeMaxMonth: function(maxMonth) {
+            this.options.maxMonth = parseInt(maxMonth) || 12;
+            this.fillCombo('month');
+        },
 
         /*
         fill year
